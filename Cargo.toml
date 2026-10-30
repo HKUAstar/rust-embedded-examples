@@ -1,0 +1,140 @@
+[package]
+name = "rust-embedded-examples"
+version = "0.1.0"
+edition = "2024"
+license = "MIT OR Apache-2.0"
+publish = false
+
+[lib]
+test = false
+doctest = false
+
+[dependencies]
+cortex-m = { version = "0.7.8", features = ["inline-asm", "critical-section-single-core"] }
+cortex-m-rt = "0.7.6"
+embassy-executor = { version = "0.10", features = ["platform-cortex-m", "executor-thread"] }
+embassy-stm32 = { version = "0.6", default-features = false, features = [
+    "stm32f407ig",
+    "rt",
+    "time-driver-tim2",
+    "exti",
+    "time",
+] }
+embassy-time = { version = "0.5", features = ["tick-hz-1_000_000"] }
+
+embedded-hal = "1.0"
+embassy-sync = "0.8"
+libm = "0.2"
+rtt-target = "0.6"
+panic-rtt-target = "0.2"
+heapless = "0.9"
+embedded-can = "0.4"
+
+[[example]]
+name = "adc_power"
+test = false
+
+[[example]]
+name = "buzzer"
+test = false
+
+[[example]]
+name = "can_motors"
+test = false
+
+[[example]]
+name = "chassis"
+test = false
+
+[[example]]
+name = "flash_light"
+test = false
+
+[[example]]
+name = "flash_read_write"
+test = false
+
+[[example]]
+name = "flow_led"
+test = false
+
+[[example]]
+name = "gimbal"
+test = false
+
+[[example]]
+name = "imu_temperature"
+test = false
+
+[[example]]
+name = "ins"
+test = false
+
+[[example]]
+name = "ist8310"
+test = false
+
+[[example]]
+name = "key_exti"
+test = false
+
+[[example]]
+name = "led_tasks"
+test = false
+
+[[example]]
+name = "light_led"
+test = false
+
+[[example]]
+name = "new_program"
+test = false
+
+[[example]]
+name = "oled"
+test = false
+
+[[example]]
+name = "pwm_light"
+test = false
+
+[[example]]
+name = "pwm_snail"
+test = false
+
+[[example]]
+name = "remote_dma"
+test = false
+
+[[example]]
+name = "remote_printf"
+test = false
+
+[[example]]
+name = "servo_motor"
+test = false
+
+[[example]]
+name = "spi_bmi088"
+test = false
+
+[[example]]
+name = "standard_robot"
+test = false
+
+[[example]]
+name = "tim_light"
+test = false
+
+[[example]]
+name = "usart"
+test = false
+
+[profile.dev]
+opt-level = 1
+debug = 2
+
+[profile.release]
+debug = 2
+lto = "thin"
+opt-level = "s"

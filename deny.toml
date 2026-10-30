@@ -1,0 +1,33 @@
+[graph]
+targets = ["thumbv7em-none-eabihf"]
+all-features = true
+
+[advisories]
+unused-ignored-advisory = "allow"
+ignore = [
+  # bare-metal is deprecated and unmaintained, with no patched release. It is reached only through
+  # cortex-m 0.7 (via embassy-stm32 and stm32-metapac), which has no compatible upgrade.
+  { id = "RUSTSEC-2026-0110", reason = "unmaintained, via cortex-m 0.7" },
+]
+
+[licenses]
+allow = [
+  "Apache-2.0",
+  "MIT",
+  "Unicode-3.0",
+  "Zlib",
+]
+confidence-threshold = 0.8
+unused-allowed-license = "allow"
+
+[bans]
+multiple-versions = "allow"
+wildcards = "allow"
+highlight = "all"
+workspace-default-features = "allow"
+external-default-features = "allow"
+
+[sources]
+unknown-registry = "deny"
+unknown-git = "deny"
+allow-registry = ["https://github.com/rust-lang/crates.io-index"]

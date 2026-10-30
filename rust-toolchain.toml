@@ -1,0 +1,5 @@
+# Exact stable release, so everyone builds with the same compiler and lints.
+[toolchain]
+channel = "1.99.1"
+components = ["rust-src", "rustfmt", "clippy"]
+targets = ["thumbv7em-none-eabihf"]
